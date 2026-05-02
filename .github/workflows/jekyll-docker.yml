@@ -1,0 +1,18 @@
+name: Weekend Night Job
+
+on:
+  schedule:
+    # Sábado (UTC)
+    - cron: "*/20 23 * * 6"   # 6:00 PM - 6:59 PM PE
+    - cron: "*/20 0-3 * * 0"  # 7:00 PM - 10:59 PM PE
+
+    # Domingo (UTC)
+    - cron: "*/20 23 * * 0"   # 6:00 PM - 6:59 PM PE
+    - cron: "*/20 0-3 * * 1"  # 7:00 PM - 10:59 PM PE
+
+jobs:
+  run-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ejecutar script
+        run: echo "Corriendo cada 20 min fines de semana en la noche 🇵🇪"
